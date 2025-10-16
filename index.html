@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustFind - Stacks Blockchain Lost & Found</title>
+    <title>SmartFound - Stacks Blockchain Lost & Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    </noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    </noscript>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #5546ff 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(45deg, #667eea, #764ba2);
+            --success-gradient: linear-gradient(45deg, #28a745, #20c997);
+            --danger-gradient: linear-gradient(45deg, #dc3545, #fd7e14);
+            --warning-gradient: linear-gradient(45deg, #ffc107, #fd7e14);
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+@@ -61,22 +68,27 @@
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(33, 37, 41, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+@@ -351,16 +363,24 @@
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Enhanced Progress Bars */
+        .progress {
+            height: 8px;
+            border-radius: 50px;
+            background: rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+@@ -375,7 +395,9 @@
+        }
+
+        @keyframes progressFill {
+            from { width: 0%; }
+            from {
+                width: 0%;
+            }
+        }
+
+        /* Enhanced Notifications */
+@@ -394,7 +416,9 @@
+        }
+
+        @keyframes slideInRight {
+            to { transform: translateX(0); }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Page Transitions */
+@@ -441,11 +465,11 @@
+            .hero-section {
+                padding: 4rem 0;
+            }
+            
+
+            .card-hover:hover {
+                transform: translateY(-5px) scale(1.01);
+            }
+            
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+            }
+@@ -489,8 +513,15 @@
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Enhanced How It Works Section */
+@@ -564,6 +595,7 @@
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+@@ -586,11 +618,11 @@ <h5 class="text-white">Loading SmartFound...</h5>
+            <a class="navbar-brand" href="#" onclick="showPage('home')">
+                <i class="fas fa-brain"></i> TrustFind
+            </a>
+            
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+@@ -711,7 +743,7 @@ <h5>Earn STX Rewards</h5>
+        <button class="btn btn-secondary back-btn" onclick="showPage('home')">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+        
+
+        <div class="container" style="padding-top: 100px;">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+@@ -728,22 +760,22 @@ <h4 class="mb-0">
+                                    <label>Item Name *</label>
+                                    <input type="text" class="form-control" id="lostItemName" placeholder="e.g., iPhone 14 Pro, Black Wallet, Car Keys" required>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Detailed Description *</label>
+                                    <textarea class="form-control" id="lostItemDesc" rows="3" placeholder="Detailed description, unique features, brand, color, any distinguishing marks..." required></textarea>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Location Lost *</label>
+                                    <input type="text" class="form-control" id="lostLocation" placeholder="e.g., Central Park NYC, Starbucks on 5th Ave, University Campus" required>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Date Lost</label>
+                                    <input type="date" class="form-control" id="lostDate">
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>STX Reward (Optional)</label>
+                                    <div class="input-group">
+@@ -754,19 +786,19 @@ <h4 class="mb-0">
+                                    </div>
+                                    <small class="form-text text-muted">Offering a reward increases the chances of recovery</small>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Contact Information *</label>
+                                    <input type="text" class="form-control" id="lostContact" placeholder="Email or phone (encrypted on Stacks blockchain)" required>
+                                </div>
+                                
+
+                                <button type="submit" class="btn btn-stacks btn-block btn-lg">
+                                    <i class="fas fa-link"></i> Register on Stacks Blockchain
+                                </button>
+                                
+
+                                <div class="mt-3 text-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-shield-alt"></i> 
+                                        <i class="fas fa-shield-alt"></i>
+                                        Your data is encrypted and stored securely on the Stacks blockchain
+                                    </small>
+                                </div>
+@@ -783,7 +815,7 @@ <h4 class="mb-0">
+        <button class="btn btn-secondary back-btn" onclick="showPage('home')">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+        
+
+        <div class="container" style="padding-top: 100px;">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+@@ -800,39 +832,39 @@ <h4 class="mb-0">
+                                    <label>Item Found *</label>
+                                    <input type="text" class="form-control" id="foundItemName" placeholder="e.g., Black leather wallet, iPhone, Set of keys" required>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Description *</label>
+                                    <textarea class="form-control" id="foundItemDesc" rows="3" placeholder="What does it look like? Brand, color, size, any distinctive features you can see..." required></textarea>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Location Found *</label>
+                                    <input type="text" class="form-control" id="foundLocation" placeholder="e.g., Coffee shop on 5th Ave, Park bench near fountain" required>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Date Found</label>
+                                    <input type="date" class="form-control" id="foundDate">
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Your Contact Information *</label>
+                                    <input type="text" class="form-control" id="finderContact" placeholder="Email or phone (encrypted on Stacks blockchain)" required>
+                                </div>
+                                
+
+                                <div class="form-group">
+                                    <label>Additional Notes</label>
+                                    <textarea class="form-control" id="foundNotes" rows="2" placeholder="Any additional information that might help identify the owner..."></textarea>
+                                </div>
+                                
+
+                                <button type="submit" class="btn btn-success btn-block btn-lg">
+                                    <i class="fas fa-search"></i> Check Stacks for Matches
+                                </button>
+                                
+
+                                <div class="mt-3 text-center">
+                                    <small class="text-muted">
+                                        <i class="fas fa-coins"></i> 
+                                        <i class="fas fa-coins"></i>
+                                        Earn STX rewards when you help reunite items with their owners
+                                    </small>
+                                </div>
+@@ -849,7 +881,7 @@ <h4 class="mb-0">
+        <button class="btn btn-secondary back-btn" onclick="showPage('home')">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </button>
+        
+
+        <div class="container" style="padding-top: 100px;">
+            <div class="row">
+                <div class="col-12">
+@@ -861,7 +893,7 @@ <h2>Stacks Blockchain Activity</h2>
+                            </span>
+                        </div>
+                    </div>
+                    
+
+                    <div id="activityFeed">
+                        <div class="text-center py-5">
+                            <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+@@ -941,7 +973,7 @@ <h5 class="modal-title">
+                        <h6><i class="fas fa-trophy"></i> Congratulations!</h6>
+                        <p class="mb-0">We found a registered lost item on the Stacks blockchain that matches your description. The owner has been automatically notified!</p>
+                    </div>
+                    
+
+                    <div class="bg-light p-3 rounded mb-3">
+                        <h6>Match Details:</h6>
+                        <div class="row">
+@@ -960,7 +992,7 @@ <h6>Match Details:</h6>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="alert alert-info">
+                        <i class="fas fa-coins"></i>
+                        Your STX reward will be automatically transferred to your Leather wallet once the owner confirms the match.
+@@ -996,7 +1028,7 @@ <h6>Leather Wallet Detected</h6>
+                            <i class="fas fa-link"></i> Connect Leather Wallet
+                        </button>
+                    </div>
+                    
+
+                    <div id="leatherNotDetected">
+                        <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                        <h6>Leather Wallet Not Found</h6>
+@@ -1026,27 +1058,27 @@ <h6>Leather Wallet Not Found</h6>
+        // Initialize App
+        $(document).ready(function() {
+            console.log('SmartFound initialized - Enhanced UX ready');
+            
+
+            // Hide loading overlay faster
+            setTimeout(() => {
+                $('#loadingOverlay').addClass('fade-out');
+                setTimeout(() => {
+                    $('#loadingOverlay').remove();
+                }, 100);
+            }, 50);
+            
+
+            // Initialize particles with fewer count for performance
+            createParticles();
+            
+
+            // Initialize animations
+            initializeAnimations();
+            
+
+            // Check for Leather wallet
+            checkLeatherWallet();
+            
+
+            // Initialize intersection observer for animations
+            initializeScrollAnimations();
+            
+
+            // Set default date to today
+            const today = new Date().toISOString().split('T')[0];
+            $('#lostDate, #foundDate').val(today);
+@@ -1082,7 +1114,9 @@ <h6>Leather Wallet Not Found</h6>
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            }, {
+                threshold: 0.1
+            });
+
+            $('.how-it-works-item').each(function() {
+                observer.observe(this);
+@@ -1112,17 +1146,19 @@ <h6>Leather Wallet Not Found</h6>
+        function showPage(page) {
+            // Hide all pages with fade out
+            $('.page-content.active').removeClass('active');
+            
+
+            setTimeout(() => {
+                $('.page-content').hide();
+                $('#' + page + 'Page').show().addClass('active');
+                
+
+                // Scroll to top smoothly
+                $('html, body').animate({ scrollTop: 0 }, 500);
+                
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 500);
+
+                // Collapse navbar on mobile
+                $('.navbar-collapse').collapse('hide');
+                
+
+                // Update active nav item
+                $('.nav-link').removeClass('active');
+                $(.nav-link[onclick="showPage('${page}')"]).addClass('active');
+@@ -1139,19 +1175,19 @@ <h6>Leather Wallet Not Found</h6>
+        function connectLeatherWallet() {
+            $('#walletModal').modal('hide');
+            const button = $('#connectWallet');
+            
+
+            button.html('<i class="fas fa-spinner fa-spin"></i> Connecting...');
+            button.prop('disabled', true);
+            
+
+            setTimeout(() => {
+                walletConnected = true;
+                userAddress = 'SP' + Math.random().toString(36).substr(2, 38).toUpperCase();
+                button.html('<i class="fas fa-check"></i> ' + userAddress.substr(0, 6) + '...' + userAddress.substr(-4));
+                button.removeClass('btn-outline-light').addClass('btn-success');
+                button.prop('disabled', false);
+                
+
+                showEnhancedNotification('Leather wallet connected successfully to Stacks!', 'success');
+                
+
+                // Add connection animation
+                button.addClass('badge-pulse');
+                setTimeout(() => button.removeClass('badge-pulse'), 2000);
+@@ -1161,13 +1197,13 @@ <h6>Leather Wallet Not Found</h6>
+        function enableDemoMode() {
+            $('#walletModal').modal('hide');
+            const button = $('#connectWallet');
+            
+
+            demoMode = true;
+            walletConnected = true;
+            userAddress = 'SP' + Math.random().toString(36).substr(2, 38).toUpperCase();
+            button.html('<i class="fas fa-flask"></i> Demo Mode');
+            button.removeClass('btn-outline-light').addClass('btn-warning');
+            
+
+            showEnhancedNotification('Demo mode enabled - simulating Stacks blockchain', 'info');
+        }
+
+@@ -1180,42 +1216,44 @@ <h6>Leather Wallet Not Found</h6>
+
+        // Generate Stacks transaction ID
+        function generateStacksTransactionId() {
+            return '0x' + Array.from({length: 64}, () => Math.floor(Math.random() * 16).toString(16)).join('');
+            return '0x' + Array.from({
+                length: 64
+            }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+        }
+
+        // Enhanced Form Submissions
+        $('#lostItemForm').submit(function(e) {
+            e.preventDefault();
+            
+
+            if (!walletConnected) {
+                showEnhancedNotification('Please connect your Leather wallet first', 'danger');
+                $('#walletModal').modal('show');
+                return;
+            }
+            
+
+            const itemName = $('#lostItemName').val().trim();
+            const description = $('#lostItemDesc').val().trim();
+            const location = $('#lostLocation').val().trim();
+            const contact = $('#lostContact').val().trim();
+            const reward = $('#rewardAmount').val();
+            const dateLost = $('#lostDate').val();
+            
+
+            if (!itemName || !description || !location || !contact) {
+                showEnhancedNotification('Please fill in all required fields', 'danger');
+                return;
+            }
+            
+
+            const submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Processing Transaction...');
+            submitBtn.prop('disabled', true);
+            
+
+            showEnhancedNotification('Processing Stacks blockchain transaction...', 'info');
+            
+
+            setTimeout(() => {
+                const itemId = generateItemId();
+                const transactionId = generateStacksTransactionId();
+                const blockHeight = Math.floor(Math.random() * 100000) + 50000;
+                
+
+                // Store item data
+                const itemData = {
+                    id: itemId,
+@@ -1231,83 +1269,83 @@ <h6>Leather Wallet Not Found</h6>
+                    blockHeight: blockHeight,
+                    owner: userAddress
+                };
+                
+
+                registeredItems.push(itemData);
+                
+
+                $('#successMessage').text(Your ${itemName} has been successfully registered on the Stacks blockchain. You'll be notified if someone finds it!);
+                $('#itemId').text(itemId);
+                $('#transactionId').text(transactionId);
+                $('#blockHeight').text('#' + blockHeight);
+                $('#successModal').modal('show');
+                
+
+                addEnhancedActivity('lost', itemName, location, reward, itemId);
+                
+
+                // Reset form with animation
+                this.reset();
+                $('#lostDate').val(new Date().toISOString().split('T')[0]);
+                submitBtn.html('<i class="fas fa-link"></i> Register on Stacks Blockchain');
+                submitBtn.prop('disabled', false);
+                
+
+                // Success animation
+                submitBtn.addClass('btn-success').removeClass('btn-stacks');
+                setTimeout(() => {
+                    submitBtn.removeClass('btn-success').addClass('btn-stacks');
+                }, 2000);
+                
+
+            }, 800);
+        });
+
+        $('#foundItemForm').submit(function(e) {
+            e.preventDefault();
+            
+
+            if (!walletConnected) {
+                showEnhancedNotification('Please connect your Leather wallet first', 'danger');
+                $('#walletModal').modal('show');
+                return;
+            }
+            
+
+            const itemName = $('#foundItemName').val().trim();
+            const description = $('#foundItemDesc').val().trim();
+            const location = $('#foundLocation').val().trim();
+            const contact = $('#finderContact').val().trim();
+            const dateFound = $('#foundDate').val();
+            const notes = $('#foundNotes').val().trim();
+            
+
+            if (!itemName || !description || !location || !contact) {
+                showEnhancedNotification('Please fill in all required fields', 'danger');
+                return;
+            }
+            
+
+            const submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Checking Matches...');
+            submitBtn.prop('disabled', true);
+            
+
+            showEnhancedNotification('Checking Stacks blockchain for matches...', 'info');
+            
+
+            setTimeout(() => {
+                const itemId = generateItemId();
+                
+
+                // Simple matching algorithm - check for similar items
+                const matchFound = registeredItems.some(item => 
+                    item.type === 'lost' && 
+                    (item.name.toLowerCase().includes(itemName.toLowerCase()) || 
+                     itemName.toLowerCase().includes(item.name.toLowerCase()) ||
+                     item.description.toLowerCase().includes(description.toLowerCase()) ||
+                     description.toLowerCase().includes(item.description.toLowerCase()))
+                const matchFound = registeredItems.some(item =>
+                    item.type === 'lost' &&
+                    (item.name.toLowerCase().includes(itemName.toLowerCase()) ||
+                        itemName.toLowerCase().includes(item.name.toLowerCase()) ||
+                        item.description.toLowerCase().includes(description.toLowerCase()) ||
+                        description.toLowerCase().includes(item.description.toLowerCase()))
+                );
+                
+
+                if (matchFound && Math.random() > 0.3) {
+                    const reward = Math.floor(Math.random() * 50) + 10;
+                    $('#matchReward').text(reward + ' STX');
+                    $('#matchModal').modal('show');
+                    addEnhancedActivity('found', itemName, location, reward, itemId, true);
+                    
+
+                    // Celebration animation
+                    showCelebration();
+                } else {
+                    const transactionId = generateStacksTransactionId();
+                    const blockHeight = Math.floor(Math.random() * 100000) + 50000;
+                    
+
+                    // Store found item data
+                    const itemData = {
+                        id: itemId,
+@@ -1323,32 +1361,32 @@ <h6>Leather Wallet Not Found</h6>
+                        blockHeight: blockHeight,
+                        finder: userAddress
+                    };
+                    
+
+                    registeredItems.push(itemData);
+                    
+
+                    $('#successMessage').text(Your found ${itemName} has been registered on the Stacks blockchain. We'll notify you if the owner comes forward!);
+                    $('#itemId').text(itemId);
+                    $('#transactionId').text(transactionId);
+                    $('#blockHeight').text('#' + blockHeight);
+                    $('#successModal').modal('show');
+                    addEnhancedActivity('found', itemName, location, null, itemId, false);
+                }
+                
+
+                this.reset();
+                $('#foundDate').val(new Date().toISOString().split('T')[0]);
+                submitBtn.html('<i class="fas fa-search"></i> Check Stacks for Matches');
+                submitBtn.prop('disabled', false);
+                
+
+            }, 700);
+        });
+
+        function showEnhancedNotification(message, type) {
+            const alertClass = type === 'success' ? 'alert-success' : 
+                              type === 'danger' ? 'alert-danger' : 'alert-info';
+            
+            const alertClass = type === 'success' ? 'alert-success' :
+                type === 'danger' ? 'alert-danger' : 'alert-info';
+
+            const icon = type === 'success' ? 'fas fa-check-circle' :
+                        type === 'danger' ? 'fas fa-exclamation-triangle' : 'fas fa-info-circle';
+            
+                type === 'danger' ? 'fas fa-exclamation-triangle' : 'fas fa-info-circle';
+
+            const notification = $(`
+                <div class="alert ${alertClass} alert-dismissible toast-notification">
+                    <i class="${icon} mr-2"></i>
+@@ -1358,27 +1396,27 @@ <h6>Leather Wallet Not Found</h6>
+                    </button>
+                </div>
+            `);
+            
+
+            $('body').append(notification);
+            
+
+            setTimeout(() => {
+                notification.alert('close');
+            }, 4000);
+        }
+
+        function addEnhancedActivity(type, itemName, location, reward, itemId, matched = false) {
+            const activityFeed = $('#activityFeed');
+            
+
+            // Remove empty state
+            activityFeed.find('.text-center').remove();
+            
+
+            const icon = type === 'lost' ? 'fas fa-search-minus text-danger' : 'fas fa-search-plus text-success';
+            const action = type === 'lost' ? 'reported lost' : 'reported found';
+            const matchText = matched ? ' <span class="badge badge-success badge-pulse">Match found!</span>' : '';
+            const rewardText = reward ? ` • Reward: ${reward} STX` : '';
+            const transactionId = generateStacksTransactionId();
+            const blockHeight = Math.floor(Math.random() * 100000) + 50000;
+            
+
+            const activity = $(`
+                <div class="card mb-3 activity-item" style="animation-delay: 0s;">
+                    <div class="card-body">
+@@ -1396,20 +1434,20 @@ <h6>Leather Wallet Not Found</h6>
+                    </div>
+                </div>
+            `);
+            
+
+            activityFeed.prepend(activity);
+            
+
+            // Keep only last 10 activities
+            activityFeed.children().slice(10).remove();
+            
+
+            totalItems++;
+        }
+
+        function showCelebration() {
+            // Simplified celebration for better performance
+            const celebration = $('<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: gold; z-index: 10000; pointer-events: none;">🎉</div>');
+            $('body').append(celebration);
+            
+
+            celebration.animate({
+                opacity: 0,
+                fontSize: '5rem'
+@@ -1448,5 +1486,38 @@ <h6>Leather Wallet Not Found</h6>
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97694e9d91a68013',t:'MTc1NjQ0MTc2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+        (function() {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML = "window.__CF$cv$params={r:'97694e9d91a68013',t:'MTc1NjQ0MTc2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function() {};
+                    document.onreadystatechange = function(b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
